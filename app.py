@@ -7,9 +7,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 
-# Load model
-model = torch.load("terra_emotion_mobilenet_optimized.pt", map_location=torch.device('cpu'))
+from torchvision import models
+import torch.nn as nn
+
+# Define model structure (must match what was trained)
+model = models.mobilenet_v2(pretrained=False)
+model.classifier[1] = nn.Linear(model.last_channel, 7)  # 7 output classes
+
+# Load state_dict
+model.load_state_dict(torch.load("terra_emotion_mobilenet_optimized.pt", map_location=torch.device("cpu")))
 model.eval()
+
 
 # Emotion labels
 emotion_labels = ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]
