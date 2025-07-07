@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: terra-emotion-ui
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run app.py
-    pythonVersion: 3.10.13
