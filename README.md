@@ -1,4 +1,4 @@
-# 🧠 TERRA Emotion UI
+#  TERRA Emotion UI
 
 Live emotion detection from facial images with ASCII art visualization.
 
